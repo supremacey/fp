@@ -1,4 +1,4 @@
-# Lista zadań nr 3
+g# Lista zadań nr 3
 ## Zadanie 1 (2p.)
 Załóżmy, że wielomiany o współczynnikach rzeczywistych są reprezentowane jako listy współczynników od najwyższej potęgi do najniższej, np. [1.;0.;-1.;2.] oznacza wielomian x3 - x + 2. Napisz funkcję, która dla zadanej listy reprezentującej wielomian i dla danego argumentu x typu float, obliczy wartość tego wielomianu w punkcie x w oparciu o schemat Hornera. Napisz tę funkcję w dwóch wersjach: raz za pomocą rekursji ogonowej, a następnie bez jawnego użycia rekursji, korzystając z odpowiedniej funkcji bibliotecznej modułu List.
 
