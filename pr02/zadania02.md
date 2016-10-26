@@ -22,8 +22,11 @@ a następnie porównaj ich działanie dla dużych n (np. dla n = 1000000).
 ## Zadanie 4 (6p.)
 
 Napisz funkcję merge, która łączy dwie listy posortowane rosnąco w pewnym porządku ≤ tak, by wynik działania funkcji był także listą posortowaną rosnąco w tym samym porządku. Argumentami funkcji merge powinny być: funkcja cmp typu 'a -> 'a -> bool (zakładamy, że cmp a b = true wtw a ≤ b) i dwie listy elementów typu 'a. Przykład: merge (<=) [1;2;5] [3;4;5] utworzy listę [1;2;3;4;5;5].
+
 Zapisz tę funkcję używając rekursji ogonowej, a następnie porównaj działanie obu funkcji na odpowiednich przykładach.
+
 Wykorzystaj funkcję merge w wersji ogonowej do napisania funkcji sortowania przez scalanie.
+
 Zaproponuj alternatywną implementację algorytmu sortowania przez scalanie, w której funkcja merge jest ogonowa, ale nie wykonuje odwracania list. Nie przejmuj się, jeżeli otrzymasz algorytm sortowania, który nie jest stabilny. Porównaj szybkość działania tej implementacji z tą z punktu 3.
 
 ## Zadanie 5 (3p.)
