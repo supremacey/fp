@@ -2,7 +2,7 @@
 * @Author: Maciej Faron
 * @Date:   30-Oct-2016
 * @Last modified by:   Maciej Faron
-* @Last modified time: 07-Nov-2016
+* @Last modified time: 09-Nov-2016
 *)
 
 (* Pracownia 04 *)
@@ -16,6 +16,16 @@ let rec palindrome' xs =
   ;;
 
 let palindrome xs = xs = List.rev xs
+  ;;
+
+let palindrom xs =
+	let rec aux = function
+		[] -> (xs,true)
+	|	[x]  -> (List.tl xs, x = List.hd xs)
+	|	h1::h2::tl ->
+		let (hd1::hd2::rest, boool) = aux tl
+		in (rest,boool && (h1 = hd2) && (h2 = hd1) )
+  in (aux xs)
   ;;
 
 (* Zadanie 2 *)
