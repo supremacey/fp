@@ -33,12 +33,12 @@ let is_balanced' bt =
     Leaf -> true
   | Node (l_bt, _, r_bt) -> abs(nodes' l_bt - nodes' r_bt) < 2
   ;;
-(*
+
 let rec balanced bt (acc_l, acc_r)= 
   match bt with
     Node(Leaf, _, Leaf) -> 1
   | Node(l_node, _, r_node) -> (balanced l_node + acc_l, balanced r_node + acc_r) 
-*)
+
 (* 2 *)
 (* Dokończ *)
 (* let rec btree_of_list xs =

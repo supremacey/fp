@@ -21,7 +21,6 @@ Mówimy, że drzewo jest zbalansowane, jeśli dla każdego węzła v liczby węz
 
 ## Zadanie 3 (2p.)
 Napisz możliwie efektywne funkcje przejścia wszerz oraz przejścia w głąb (preorder) dla obu reprezentacji drzew wielokierunkowych podanych na wykładzie (zadanie 5 z listy kontrolnej do wykładu 4).
-
 ## Zadanie 4 (6p.)
 Zdefiniuj typ służący do reprezentacji formuł rachunku zdań składających się ze zmiennych zdaniowych, negacji, koniunkcji i alternatywy.
 
