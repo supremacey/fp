@@ -1,3 +1,9 @@
+# Mac trash
+.DS_Store
+
+# Slides
+/slides
+
 # Compilation output
 *.o
 *.out
