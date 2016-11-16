@@ -29,9 +29,6 @@ let pi' n =
   in 4. *. aux (1.,n, pi_leibniz' 1.)
   ;;
 
-let rec fs' n = LCons ()
-
-
 (*
 2.
 napisz funkcję przekształcającą dowolny strumień

@@ -1,0 +1,17 @@
+(* 1 *)
+type htree = Node of (float * htree * htree) | Leaf of (char * float)
+
+
+(* 2 *)
+let p = function
+    Leaf(_,,prob) -> prob
+  | Node(prob,_,_) -> prob
+  ;; 
+  
+let find2 lst = function
+     a1::b1::tl
+ 
+let rec find2_aux lst a b nlst = 
+   match ()
+
+(* let mkHTree = *)
