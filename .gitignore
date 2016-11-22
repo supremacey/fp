@@ -2,7 +2,9 @@
 .DS_Store
 
 # Slides
+/photos
 /slides
+*.pdf
 
 # Compilation output
 *.o
