@@ -10,7 +10,7 @@ let enumerate t =
       (Node(lt', i, rt'), i'')
   in fst (aux t 1)
 
-let enumerate' t =
+(* let enumerate' t = *)
 
 (*  W szerz *)
 

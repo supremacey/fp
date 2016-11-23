@@ -94,8 +94,9 @@ __Wskazówka: dyrektywy powinny być funkcjami transformującymi kontynuacje, a 
 
 Przeanalizuj interpreter Prologa zamieszczony w _prolog.ml_.
 
-Zmień definicję funkcji run (i tylko tej funkcji) tak by interpreter liczył na ile spsobów dany cel może być spełniony przy danym programie zamiast sprawdzać tylko czy może być spełniony. (W interpreterze pojawi się nieogonowe wywołanie -- czy potrafisz zmodyfikować cały interpreter, tak by je wyeliminować?)
-Rozważmy typ danych do reprezentowania wyrażeń regularnych:
+- Zmień definicję funkcji run (__i tylko tej funkcji__) tak by interpreter liczył na ile spsobów dany cel może być spełniony przy danym programie zamiast sprawdzać tylko czy może być spełniony. (W interpreterze pojawi się nieogonowe wywołanie -- czy potrafisz zmodyfikować cały interpreter, tak by je wyeliminować?)
+
+- Rozważmy typ danych do reprezentowania wyrażeń regularnych:
 ```ocaml
 type regexp = | Atom of char | And of regexp * regexp | Or of regexp * regexp | Star of regexp
 ```
