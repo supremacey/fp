@@ -29,7 +29,7 @@ The success continuation takes a failure continuation as an argument and it spec
 what should happen next in case the current goal is satisfied.
 *)
 
-(*      eval_atom : atom -> program -> ((unit -> 'a) -> 'a) -> (unit -> 'a) -> 'a *)
+(*  eval_atom : atom -> program -> ((unit -> 'a) -> 'a) -> (unit -> 'a) -> 'a *)
 let rec eval_atom a p sc fc =
   match a with
     | Atom x -> (* lookup zwraca cele dla danego atomu jeśli atom występuje *)
@@ -49,6 +49,27 @@ and eval_goal g p sc fc =
     | a :: g -> (* zajęcie się pierwszym atomem z listy i odroczenie wykonania reszty w funkcji sukcesu która przyjmie funkcję porażki z wcześniejszego wykonania *)
       eval_atom a p (fun fc' -> eval_goal g p sc fc') fc
 
+(*  eval_atom' : atom -> program -> ((unit -> int) -> int) -> (unit -> int) -> int *)
+let rec eval_atom' a p sc fc v =
+  match a with
+    | Atom x -> (* lookup zwraca cele dla danego atomu jeśli atom występuje *)
+      (match (lookup x p) with
+	| None ->
+	  fc v (* nie ma takiego atomu == wykonanie funkcji porażki *)
+	| Some g ->
+	  eval_goal' g p sc fc v)
+    | Or (g1, g2) ->
+      eval_goal' g1 p sc (fun v' -> eval_goal' g2 p sc fc v') v
+
+(*  eval_goal' : goal -> program -> ((unit -> int) -> int) -> (unit -> int) -> int  *)
+and eval_goal' g p sc fc v =
+  match g with
+    | [] ->
+      sc fc v (* funkcja sukcesu z zaalpikowaną funkcją porażki, np. sprawdzenie kolejnego celu(goal - zapytania) z listy *)
+    | a :: g -> (* zajęcie się pierwszym atomem z listy i odroczenie wykonania reszty w funkcji sukcesu która przyjmie funkcję porażki z wcześniejszego wykonania *)
+      eval_atom' a p (fun fc' v -> eval_goal' g p sc fc' v) fc v
+
+
 (*  run : goal ->  program -> bool  *)
 let run g p = eval_goal g p (fun _ -> true) (fun () -> false)
 (*
@@ -59,7 +80,18 @@ Pierwotnie funkcja sukcesu zwraca prawdę dla dowolnie przekazanego argumentu (w
 *)
 let run' g p = eval_goal g p (fun fc' -> 1 + fc'() ) (fun () -> 0)
 (* teraz pozbądź się wywołania ogonowego *)
-let run'' g p = eval_goal g p (fun fc' -> 1 + fc'() ) (fun () -> 0)
+let run'' g p = eval_goal' g p (fun fc' v -> fc' (v+1) ) (fun acc -> acc) 0
+
+(* podpunkt 2 *)
+(* type regexp = | Atom of char | And of regexp * regexp | Or of regexp * regexp | Star of regexp *)
+
+(*
+match_regexp : regexp -> char list -> (char list -> (unit -> 'a) -> 'a) -> (unit -> 'a) -> 'a
+*)
+
+(*
+run : regexp -> char list -> bool,
+*)
 
 (* tests *)
 

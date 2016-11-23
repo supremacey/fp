@@ -64,7 +64,7 @@ let hirem (Array(ar,n)) =
   if n < 1 then failwith "Empty array."
   else let rec aux a i =
     match (a,i) with
-      (Node(l, v, r), 1) -> Leaf
+      (Node(Leaf, v, Leaf), _) -> Leaf
     | (Node(l, ov, r), _) -> let d = i mod 2 and i' = i/2 in
       if d = 0 then
         let nl = aux l i' in Node(nl, ov, r)
